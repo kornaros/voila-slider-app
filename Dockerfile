@@ -10,8 +10,9 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 COPY . /app
 
-# Εγκατάσταση εξαρτήσεων
-RUN pip install --no-cache-dir voila ipywidgets jupyterlab
+# Αναβάθμιση pip και εγκατάσταση εξαρτήσεων
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir voila ipywidgets jupyterlab
 
 # Πόρτα που θα ανοιχτεί στο Render
 EXPOSE 8888
